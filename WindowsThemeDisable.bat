@@ -44,7 +44,6 @@ EXIT /B
 :CASE_disable
   :: (0 = default, 1 = enable restriction)
   REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Utilman.exe" /v "Debugger" /t REG_SZ /d "systray.exe" /f
-  REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "NoThemesTab" /t REG_DWORD /f /d 1
   REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "NoThemesTab" /t REG_DWORD /f /d 1
   TAKEDOWN /a /f C:\Windows\Resources\Ease of Access Themes /r /d y
   MOVE "C:\Windows\Resources\Ease of Access Themes" "C:\Windows\Ease of Access Themes"
@@ -53,7 +52,6 @@ EXIT /B
   GOTO END_CASE
 :CASE_enable
   :: (0 = default, 1 = enable restriction)
-  REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "NoThemesTab" /t REG_DWORD /f /d 0
   REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "NoThemesTab" /t REG_DWORD /f /d 0  
   REG DELETE "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Utilman.exe" /v "Debugger" /f
   REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "NoThemesTab" /f 
